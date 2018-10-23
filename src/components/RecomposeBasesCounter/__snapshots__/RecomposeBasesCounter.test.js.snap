@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RecomposeBasedCounter/> component should display counter with two buttons 1`] = `
+<withHandlers(RecomposeBasedCounter)
+  count={0}
+  handleDec={[MockFunction]}
+  handleInc={[MockFunction]}
+  setCount={[Function]}
+/>
+`;

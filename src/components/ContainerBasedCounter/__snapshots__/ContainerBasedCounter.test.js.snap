@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ContainerBasedCounter/> should display counter with two buttons 1`] = `
+<div>
+  <div>
+    <strong>
+      Counter: 
+    </strong>
+    0
+  </div>
+  <div>
+    <button
+      onClick={[MockFunction]}
+      type="button"
+    >
+      +
+    </button>
+     
+    <button
+      onClick={[MockFunction]}
+      type="button"
+    >
+      -
+    </button>
+  </div>
+</div>
+`;
