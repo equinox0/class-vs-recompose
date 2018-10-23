@@ -1,6 +1,6 @@
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import React from "react";
-import RecomposeBasedCounter from "./RecomposeBasedCounter";
+import { RecomposeBasedCounter, enhance } from "./RecomposeBasedCounter";
 
 describe("<RecomposeBasedCounter/>", () => {
   describe("component", () => {
@@ -10,9 +10,7 @@ describe("<RecomposeBasedCounter/>", () => {
         handleDec: jest.fn(),
         handleInc: jest.fn()
       };
-
       const wrapper = shallow(<RecomposeBasedCounter {...props} />);
-
       return { wrapper };
     };
 
@@ -23,6 +21,27 @@ describe("<RecomposeBasedCounter/>", () => {
   });
 
   describe("enhance", () => {
-    it("should be implemented", () => {});
+    const setup = () => {
+      const MockComponent = () => null;
+      const EnhancedComponent = enhance(MockComponent);
+      const wrapper = mount(<EnhancedComponent />);
+      const outputProps = wrapper.find(MockComponent).props();
+      return { MockComponent, outputProps, wrapper };
+    };
+
+    it("should increment", () => {
+      const { outputProps } = setup();
+      outputProps.handleInc();
+    });
+
+    it("should decrement", () => {
+      const { outputProps } = setup();
+      outputProps.handleInc();
+    });
+
+    it("should have count", () => {
+      const { outputProps } = setup();
+      expect(outputProps.count).toEqual(0);
+    });
   });
 });

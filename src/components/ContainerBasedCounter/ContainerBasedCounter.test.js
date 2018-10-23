@@ -14,6 +14,7 @@ describe("<ContainerBasedCounter/>", () => {
 
     return { wrapper };
   };
+  
   it("should display counter with two buttons", () => {
     const { wrapper } = setup();
     expect(wrapper).toMatchSnapshot();
