@@ -9,9 +9,20 @@ describe("ContainerBasedCounterContainer", () => {
     return { wrapper };
   };
 
-  it("should be implemented", () => {
+  it("should increment", () => {
     const { wrapper } = setup();
-    console.log(wrapper.state());
-    console.log(wrapper.handleInc);
+    wrapper.instance().handleDec();
+    expect(wrapper.state().count).toEqual(-1);
+  });
+
+  it("should decrement", () => {
+    const { wrapper } = setup();
+    wrapper.instance().handleDec();
+    expect(wrapper.state().count).toEqual(-1);
+  });
+
+  it("should have count", () => {
+    const { wrapper } = setup();
+    expect(wrapper.state().count).toEqual(0);
   });
 });

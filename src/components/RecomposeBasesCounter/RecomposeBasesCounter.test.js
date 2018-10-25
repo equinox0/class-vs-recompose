@@ -30,13 +30,19 @@ describe("<RecomposeBasedCounter/>", () => {
     };
 
     it("should increment", () => {
-      const { outputProps } = setup();
+      const { MockComponent, outputProps, wrapper } = setup();
       outputProps.handleInc();
+      wrapper.update();
+      const newProps = wrapper.find(MockComponent).props();
+      expect(newProps.count).toEqual(1);
     });
 
     it("should decrement", () => {
-      const { outputProps } = setup();
-      outputProps.handleInc();
+      const { MockComponent, outputProps, wrapper } = setup();
+      outputProps.handleDec();
+      wrapper.update();
+      const newProps = wrapper.find(MockComponent).props();
+      expect(newProps.count).toEqual(-1);
     });
 
     it("should have count", () => {
